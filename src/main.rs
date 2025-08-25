@@ -49,10 +49,7 @@ fn main() {
 
     match listener.accept() {
         Ok((stream, _)) => handle_client(stream),
-        Err(e) => {
-            eprintln!("Failed to accept connection. {}", e);
-            std::process::exit(1);
-        }
+        Err(e) => eprintln!("Failed to accept connection. {}", e)
     }
 }
 
