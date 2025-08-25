@@ -2,10 +2,10 @@
 use std::net::{TcpListener, TcpStream};
 use std::io::{Read, Write};
 
-// TODO: automatically discern status from code
-fn send_status_line(mut stream: TcpStream, code: &str, status: &str) {
+// TODO: automatically discern status_text from status_code
+fn send_status_line(mut stream: TcpStream, status_code: &str, status_text: &str) {
     let version = "HTTP/1.1";
-    let status_line = format!("{} {} {}\r\n\r\n", version, code, status);
+    let status_line = format!("{} {} {}\r\n\r\n", version, status_code, status_text);
     let response = status_line.as_bytes();
     match stream.write(response) {
         Ok(size_written) => println!("{} bytes written", size_written),
