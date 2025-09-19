@@ -108,7 +108,7 @@ fn handle_connection(mut stream: TcpStream) {
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
-    if args.len() < 3 || 3 < args.len() { // why wouldn't this condition evaluate to true?
+    if args.len() < 3 || 3 < args.len() {
         println!("usage: ./codecrafters-http-server \"ipaddr\" \"port\"");
         return;
     }
